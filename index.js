@@ -9,3 +9,7 @@ Main Javascript file
 -Kim
 -Sunit
 */
+
+$(function(){
+
+});
