@@ -1,11 +1,37 @@
 #intro {
-    background-color: red;
-    width: 100%;
+    background-image: url(https://images.unsplash.com/photo-1470337458703-46ad1756a187?dpr=1&auto=compress,format&fit=crop&w=2549&h=&q=80&cs=tinysrgb&crop=);
+    background-position: center;
+    height: 550px;
+    background-size: 100%;
+    background-color: rgba(41,47,54, 0.8);
+    margin: 0px;
+    padding: 0px;
+
 }
 #mainContainer.container {
     margin-left: 0px;
     margin-right: 0px;
+    padding-right: 0px;
+    padding-left: 0px;
 }
 .container {
     width: 100%;
+}
+
+.container-fluid {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 100%;
+}
+#title {
+    color: white; 
+    padding-top: 150px;
+}
+#subtitle {
+    color:white;
+    padding-top: 50px;
+    letter-spacing: 0.3em;
 }
