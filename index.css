@@ -6,6 +6,8 @@
     background-color: rgba(41,47,54, 0.8);
     margin: 0px;
     padding: 0px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
 }
 #mainContainer.container {
@@ -33,5 +35,11 @@
 #subtitle {
     color:white;
     padding-top: 50px;
+    letter-spacing: 0.3em;
+}
+#terms {
+    padding: .5em;
+}
+#copyright {
     letter-spacing: 0.3em;
 }
