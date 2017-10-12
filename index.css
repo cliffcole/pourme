@@ -1,12 +1,11 @@
-/*
-Pour Me - Find a drink!
-
-Custom CSS file
-
-@Authors
--Cliff Cole
--Jarrod
--Kim
--Sunit
-*/
-
+#intro {
+    background-color: red;
+    width: 100%;
+}
+#mainContainer.container {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.container {
+    width: 100%;
+}
