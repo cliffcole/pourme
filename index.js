@@ -62,7 +62,7 @@ $(function(){
             method: 'GET'
         })
         .done(function(results){
-            renderSearchResults(results);
+            console.log("put something new here for rendering")
         });
     });
 
