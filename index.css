@@ -10,6 +10,15 @@
     background-attachment: fixed;
 
 }
+.color-filter {
+    background-color: rgba(84, 105, 118, 0.45);
+    height: 550px;
+    background-size: 100%;
+}
+#logo {
+    height: 1em;
+    opacity: 50%;
+}
 #mainContainer.container {
     margin-left: 0px;
     margin-right: 0px;
