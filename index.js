@@ -51,6 +51,20 @@ $(function(){
             renderSearchResults(results);
         });
     });
+    
+    //get results from random search
+    $('#randomize').on('submit', function(e){
+        e.preventDefault(); //prevent page from refreshing
+        
+        var searchUrl = "http://www.thecocktaildb.com/api/json/v1/1/random.php";
+        $.ajax({
+            url: searchUrl,
+            method: 'GET'
+        })
+        .done(function(results){
+            renderSearchResults(results);
+        });
+    });
 
     //Render results to page
     function renderSearchResults(results){
