@@ -67,43 +67,31 @@ $(function(){
         });
     });
 
+    //Hacky method to append all html after hours of trying .appends
     //Render results to page
     function renderSearchResults(results){
-        console.log(results);
+        $('#searchResults').empty();
         var counter = 0;
-        //var searchResultsDiv = $('#searchResults');
-        
-        var searchResultsRow = $('<div></div>');
-        var searchResultsCol = $('<div></div>');
-        var searchResultsUl = $('<ul></ul>');
-        //var searchResultsLi = $('<li></li>');
 
-        //console.log(searchResultsDiv);
-        console.log(searchResultsRow);
-        console.log(searchResultsCol);
-
-        searchResultsRow.addClass('row');
-        searchResultsCol.addClass('col-3');
-       
-        console.log(searchResultsRow);
-        console.log(searchResultsCol);
-             
-        //console.log(searchResultsDiv);
+       var renderSearchResults = "";
         results.drinks.forEach(function(element){
-            //console.log(element);
-            var searchResultsLi = $('<li></li>');
-            var searchResultsAnchor = ('<a></a>'); 
+            
             if(counter % 4 == 0){
-                $('#searchResults').append(searchResultsRow);
+                renderSearchResults += "<div class='row'>";
             }
-            searchResultsLi.text(element.strDrink);
-           // console.log(element.strDrink);
-           searchResultsUl.append(searchResultsLi);
-           searchResultsCol.append(searchResultsUl);
-           searchResultsRow.append(searchResultsCol);
-           $('#searchResults').append(searchResultsRow)
+            renderSearchResults += "<div class='col-3'>";
+            renderSearchResults += "<a href='#'><img src='"+ element.strDrinkThumb + "' height='200' width='277'></a>"
+            renderSearchResults += element.strDrink;
+            renderSearchResults += "</div>"; //close col div
+            
+
+            if((counter + 1) % 4 == 0){
+                renderSearchResults += "</div>" //close row div is next count = 0;
+            }
             counter++;
+            
         });
+        $('#searchResults').append(renderSearchResults);
 
     }
     
