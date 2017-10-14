@@ -107,29 +107,29 @@ $(function(){
         })
         .done(function(results){
             console.log(results);
-            var drinkName = results.drinks[0].strDrink;
+            /* var drinkName = results.drinks[0].strDrink;
             var drinkInstructions = results.drink[0].strInstructions;
             
              
             modal.find('.modal-title').text(drinkName);
             renderDrinkIngredients += "<div class='row'><div class='col'>";
             renderDrinkIngredients += drinkInstructions;
-            renderDrinkIngredients += "</div></div>"
+            renderDrinkIngredients += "</div></div>" */
         })
-        
-        function renderRandom(result) {
-            $('#results-area').empty();
-            
-            var searchRandomResult = "";
-            searchRandomResult += "<div class='row'>";
-            searchRandomResult += "<div class='col-3'>";
-            searchRandomResult += "<a href='#'><img src='"+ result.drinks[0].strDrinkThumb + "' height='200' width='277'></a>"
-            searchRandomResult += result.drinks[0].strDrink;
-            searchRandomResult += "</div></div>"; //close col div
-            
-            $('#results-area').append(searchRandomResult);
-        }
     })
+    function renderRandom(result) {
+        $('#results-area').empty();
+        
+        var searchRandomResult = "";
+        searchRandomResult += "<div class='row'>";
+        searchRandomResult += "<div class='col-3'>";
+        searchRandomResult += "<a href='#'><img src='"+ result.drinks[0].strDrinkThumb + "' height='200' width='277'></a>"
+        searchRandomResult += result.drinks[0].strDrink;
+        searchRandomResult += "</div></div>"; //close col div
+        
+        $('#results-area').append(searchRandomResult);
+    }
+    
     //using jquery ui - autocomplete function for search menu
     $('#drinkSearch').autocomplete({
         source: ingredients
