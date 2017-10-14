@@ -160,9 +160,10 @@ form {
     padding-top: 20px;
 }
 
+/* - Removing to align correctly
 #randomize {
     padding-bottom: 3%;
-}
+}*/
 
 #randomize, col-8 {
     padding-right: 5%;
