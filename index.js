@@ -53,7 +53,7 @@ $(function(){
     });
     
     //get results from random search
-    $('#randomize').on('submit', function(e){
+    $('#randomButton').on('click', function(e){
         e.preventDefault(); //prevent page from refreshing
         
         var searchUrl = "http://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -61,8 +61,9 @@ $(function(){
             url: searchUrl,
             method: 'GET'
         })
-        .done(function(results){
+        .done(function(result){
             console.log("put something new here for rendering")
+            renderRandom(result);
         });
     });
 
@@ -92,6 +93,19 @@ $(function(){
         });
         $('#searchResults').append(renderSearchResults);
 
+    }
+    
+    function renderRandom(result) {
+        $('#results-area').empty();
+        
+        var searchRandomResult = "";
+        searchRandomResult += "<div class='row'>";
+        searchRandomResult += "<div class='col-3'>";
+        searchRandomResult += "<a href='#'><img src='"+ result.drinks[0].strDrinkThumb + "' height='200' width='277'></a>"
+        searchRandomResult += result.drinks[0].strDrink;
+        searchRandomResult += "</div></div>"; //close col div
+        
+        $('#results-area').append(searchRandomResult);
     }
 
     //using jquery ui - autocomplete function for search menu
