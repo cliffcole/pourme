@@ -61,8 +61,9 @@ $(function(){
             url: searchUrl,
             method: 'GET'
         })
-        .done(function(results){
+        .done(function(result){
             console.log("put something new here for rendering")
+            //renderRandom(result);
         });
     });
 
@@ -104,6 +105,15 @@ $(function(){
             counter++;
         });
 
+    }
+    
+    function renderRandom(results) {
+        var counter = 0;
+        
+        var searchRandom = $('<div></div>');
+        
+        $('#results-area').append(searchResultsRow)
+        counter++;
     }
 
     //using jquery ui - autocomplete function for search menu
