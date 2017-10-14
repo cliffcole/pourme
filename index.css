@@ -116,3 +116,16 @@
 .card {
     border: 0;
 }
+
+.footer {
+    background-color: rgba(41,47,54, 0.8);
+    
+}
+#randomize {
+    
+    padding-bottom: 3%;
+}
+
+#credits {
+    
+}
