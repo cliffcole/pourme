@@ -202,3 +202,14 @@ $(function(){
         source: ingredients
     });
 });
+
+
+// scroll font change function
+$(window).scroll(function() {
+    if ($(document).scrollTop() > 600) {
+        $('nav').addClass('shrink');
+    }
+    else {
+        $('nav').removeClass('shrink');
+    }
+});
