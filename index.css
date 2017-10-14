@@ -116,3 +116,9 @@
 .card {
     border: 0;
 }
+
+/* Random Result Formatting */
+
+#results-area {
+    padding-top: 20px;
+}

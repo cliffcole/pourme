@@ -98,13 +98,43 @@ $(function(){
         $('#results-area').empty();
         
         var searchRandomResult = "";
+        //row
         searchRandomResult += "<div class='row'>";
-        searchRandomResult += "<div class='col-3'>";
+        
+        //col-4
+        searchRandomResult += "<div class='col-4'>";
         searchRandomResult += "<a href='#'><img src='"+ result.drinks[0].strDrinkThumb + "' height='200' width='277'></a>"
-        searchRandomResult += result.drinks[0].strDrink;
-        searchRandomResult += "</div></div>"; //close col div
+        searchRandomResult += "<hr />"
+        searchRandomResult += "<p>" + result.drinks[0].strDrink + "</p>"
+        searchRandomResult += "</div>"; //close col-4 div
+        
+        //col-8
+        searchRandomResult += "<div class='col-8'>";
+        searchRandomResult += "<div class='instructions'>" + result.drinks[0].strInstructions + "</div>";
+        searchRandomResult += "<hr />";
+        
+        searchRandomResult += "<div class='ingredients'>" + gatherIngredients(result) + "</div>";
+        searchRandomResult += "</div>"; //close col-8 div
+        
+        searchRandomResult += "</div>"; //close div
         
         $('#results-area').append(searchRandomResult);
+    }
+    
+    //gather list of ingredients for a drink
+    function gatherIngredients(selectedDrink) {
+        var ingredients = "Ingredients: ";
+        
+        for (ingredient = 1; ingredient <= 15; ingredient++) {
+            var selector = "strIngredient" + ingredient.toString();
+            if (selectedDrink.drinks[0][selector] === "") {
+                break;
+            } else {
+                ingredients += selectedDrink.drinks[0][selector] + ", ";
+            }
+            
+        }
+        return ingredients.slice(0,length-2);
     }
 
     //using jquery ui - autocomplete function for search menu
