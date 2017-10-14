@@ -71,6 +71,7 @@
     height: 600px;
     background-size: 100%;
 }
+
 #logo {
     height: 1em;
     opacity: 50%;
@@ -120,6 +121,7 @@
 #howto {
     padding-top: 3%;
     text-align: center;
+    min-height: 500px;
 }
 
 .card {
