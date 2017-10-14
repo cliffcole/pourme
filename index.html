@@ -44,6 +44,8 @@
                             <h1 class="display-1 text-center" id="title">
                                 Pour Me 
                             </h1>
+                            <div class="divider">
+                            </div>
                             <h5 class="display-5 text-center" id="subtitle">
                                 Cocktail archive made simple. 
                             </h5>
@@ -76,8 +78,10 @@
 
             <!-- This begins the how-to section -->
             <div id="howto" class="container-fluid">
-                <h4>How To:</h4>
-                <div class="row">
+                <h4 class="display-3">How To</h4>
+                <div class="divider">
+                </div>
+                <div class="row" id="steps">
                     <div class="col">
                         <div class="card">
                             <i class="fa fa-5x fa-search" aria-hidden="true"></i>
@@ -112,6 +116,8 @@
             <!-- This begins the search section -->
             <div id="search" class="container-fluid">
                 <div class="container">
+                    <h4 class="display-3 text-center">Pick Your Poison</h4>
+                    <div class="divider"></div>
                     <form id="drinkSubmit">
                         <div class="input-group">
                             <input id="drinkSearch" class="searchInput form-control" type="text" placeholder="Search for an Ingredient">
@@ -128,7 +134,8 @@
             <div id="randomize" class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h4>Here is a Randomized Drink!</h4>
+                        <h4 class="display-3 text-center">Randomize</h4>
+                        <div class="divider"></div>
                         <button id="randomButton" type="submit" class="btn btn-primary">Random Drink Please!</button>
                         <div id="results-area" class="container"></div>
                     </div>
