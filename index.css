@@ -106,8 +106,14 @@ nav.shrink {
 }
 #subtitle {
     color:white;
-    padding-top: 50px;
+    padding-top: 25px;
     letter-spacing: 0.3em;
+}
+.divider {
+    background: #222222;
+    height: 4px;
+    width: 25px;
+    margin: 20px auto;
 }
 #terms {
     padding: .5em;
@@ -133,6 +139,19 @@ nav.shrink {
 
 .card {
     border: 0;
+}
+
+#steps {
+    padding-top: 50px; 
+    padding-left: 50px;
+    padding-right: 50px;
+}
+h4.display-3 {
+    padding-top:30px;
+}
+
+form {
+    padding-top: 50px;
 }
 
 /* Random Result Formatting */
