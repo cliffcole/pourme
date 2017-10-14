@@ -144,7 +144,6 @@ $(function(){
         $('#results-area').append(searchRandomResult);
     }
     
-<<<<<<< HEAD
     //gather list of ingredients for a drink
     function gatherIngredients(selectedDrink) {
         var ingredients = "Ingredients: ";
@@ -160,9 +159,7 @@ $(function(){
         }
         return ingredients.slice(0,length-2);
     }
-
-=======
->>>>>>> master
+    
     //using jquery ui - autocomplete function for search menu
     $('#drinkSearch').autocomplete({
         source: ingredients
