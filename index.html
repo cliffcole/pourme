@@ -23,6 +23,13 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
         <script></script>
         <script src="https://use.fontawesome.com/a5a759b9e9.js"></script>
+        <script src="smooth-scroll.js"></script>
+        <script>
+var scroll = new SmoothScroll('a[href*="#"]', {
+    speed: 2000;
+    easing: 'easeInOutCubic',
+}
+        </script>
          <script src="index.js"></script>
 </head>
 <body>
@@ -34,16 +41,16 @@
                 <div class="col-12 container-fluid" id="navbar">
                     <ul class="nav-options justify-content-center nav-options">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                            <a data-scroll class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#howto">How To</a>
+                            <a data-scroll class="nav-link" href="#howto">How To</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#search">Search</a>
+                            <a data-scroll class="nav-link" href="#search">Search</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#randomize">Randomize</a>
+                            <a data-scroll class="nav-link" href="#randomize">Randomize</a>
                         </li>  
                     </ul>
                 </div>
