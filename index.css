@@ -126,6 +126,12 @@
     border: 0;
 }
 
+/* Random Result Formatting */
+
+#results-area {
+    padding-top: 20px;
+}
+
 #randomize {
     
     padding-bottom: 3%;
