@@ -48,6 +48,7 @@ $(function(){
             method: 'GET'
         })
         .done(function(results){
+            sessionStorage.setItem("results",JSON.stringify(results));
             renderSearchResults(results);
         });
     });
@@ -76,11 +77,11 @@ $(function(){
         results.drinks.forEach(function(element){
             
             if(counter % 4 == 0){
-                renderSearchResults += "<div class='row'>";
+                renderSearchResults += "<div class='searchRow row'>";
             }
             renderSearchResults += "<div class='col-3'>";
-            renderSearchResults += "<a href='#'><img src='"+ element.strDrinkThumb + "' height='200' width='277'></a>"
-            renderSearchResults += element.strDrink;
+            renderSearchResults += "<a href='#'><img class = 'rounded' src='"+ element.strDrinkThumb + "' height='200' width='277'>"
+            renderSearchResults += element.strDrink + "</a>";
             renderSearchResults += "</div>"; //close col div
             
 
