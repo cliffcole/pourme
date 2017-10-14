@@ -62,7 +62,6 @@ $(function(){
             method: 'GET'
         })
         .done(function(result){
-            console.log("put something new here for rendering")
             renderRandom(result);
         });
     });
