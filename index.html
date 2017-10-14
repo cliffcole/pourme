@@ -20,16 +20,16 @@
                 crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
                 crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-        <script></script>
-        <script src="https://use.fontawesome.com/a5a759b9e9.js"></script>
-        <script src="smooth-scroll.js"></script>
-        <script>
-var scroll = new SmoothScroll('a[href*="#"]', {
-    speed: 2000,
-    easing: 'easeInOutCubic',
-});
-        </script>
+                <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+                <script></script>
+                <script src="https://use.fontawesome.com/a5a759b9e9.js"></script>
+                <script src="smooth-scroll.js"></script>
+                <script>
+        var scroll = new SmoothScroll('a[href*="#"]', {
+            speed: 2000,
+            easing: 'easeInOutCubic',
+        });
+                </script>
          <script src="index.js"></script>
 </head>
 <body>
@@ -38,19 +38,19 @@ var scroll = new SmoothScroll('a[href*="#"]', {
         <!-- This begins the nav bar -->
         <div id="header">
             <div class="row">
-                <div class="col-12 container-fluid" id="navbar">
-                    <ul class="nav-options justify-content-center nav-options">
+                    <div class="col-12 container-fluid" id="navbar">
+                            <ul class="nav-options justify-content-center nav-options">
                         <li class="nav-item">
-                            <a data-scroll class="nav-link" href="#">Home</a>
+                                <a data-scroll class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a data-scroll class="nav-link" href="#howto">How To</a>
+                                <a data-scroll class="nav-link" href="#howto">How To</a>
                         </li>
                         <li class="nav-item">
-                            <a data-scroll class="nav-link" href="#search">Search</a>
+                                <a data-scroll class="nav-link" href="#search">Search</a>
                         </li>
                         <li class="nav-item">
-                            <a data-scroll class="nav-link" href="#randomize">Randomize</a>
+                                <a data-scroll class="nav-link" href="#randomize">Randomize</a>
                         </li>  
                     </ul>
                 </div>
@@ -75,8 +75,6 @@ var scroll = new SmoothScroll('a[href*="#"]', {
         </div>
         <!-- This begins the How-To section -->
 
-            </div>
-
             <div id="howto" class="container-fluid">
                 <h4>How To:</h4>
                 <div class="row">
@@ -98,53 +96,82 @@ var scroll = new SmoothScroll('a[href*="#"]', {
                             </div>
                         </div>
                     </div>
-                    <div class="col">
-                        <div class="card">
-                            <i class="fa fa-5x fa-glass" aria-hidden="true"></i>
-                            <div class="card-block">
-                                <h4 class="card-title">Step 3</h4>
-                                <p class="card-text">Pour and enjoy!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="search" class="container-fluid">
-                <div class="container">
-                    <form id="drinkSubmit">
-                        <div class="input-group">
-                            <input id="drinkSearch" class="searchInput form-control" type="text" placeholder="Search for an Ingredient">
-                            <button id="searchButton" type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                    </form>
-                </div>
-                <div id="currentSearch" class="container"></div>
-                <div id="searchResults" class="container"></div>
-            </div>
-
-            <div id="randomize" class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
-                        <h4>Here is a Randomized Drink!</h4>
-                        <button id="randomButton" type="submit" class="btn btn-primary">Random Drink Please!</button>
-                        <div id="results-area" class="container"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="footer">
-                <div class="row">
-                    <hr>
-                    <div class="col-lg-12">
-                        <div class="col-12 text-center" id="terms">
-                            <a href="#">Terms of Service</a> · <a href="#">Privacy</a>    
-                        </div>
-                        <div class="col-12 text-center" id="copyright">
-                            <p class="cp-footer">© 2017 Pour Me Team.
-                                All rights reserved.</p>
+                
+                <div class="col">
+                    <div class="card">
+                        <i class="fa fa-5x fa-glass" aria-hidden="true"></i>
+                        <div class="card-block">
+                            <h4 class="card-title">Step 3</h4>
+                            <p class="card-text">Pour and enjoy!</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </body>
+        <div id="search" class="container-fluid">
+            <div class="container">
+                <form id="drinkSubmit">
+                    <div class="input-group">
+                        <input id="drinkSearch" class="searchInput form-control" type="text" placeholder="Search for an Ingredient">
+                        <button id="searchButton" type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form> 
+            </div>
+
+            <div id="currentSearch" class="container"></div>
+            <div id="searchResults" class="container"></div>
+        </div>
+            
+        <div id="randomize">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h4>Here is a Randomized Drink!</h4>
+                    <button id="randomButton" type="submit" class="btn btn-primary">Random Drink Please!</button>
+                    <div id="results-area"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="drinkModal">
+            <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>    
+     <div class="text-white footer">
+            <div class="container">
+                <div class="row">
+                    <div class="p-3 col-md-6"> <i class="fa fa-5x mb-5 fa-glass"></i>
+                        <h3 class="mb-3">PourMe</h3>
+                        <ul class="list-unstyled">
+                            <a href="#" class="text-white data-scroll">Home</a>
+                            <br>
+                            <a href="#search" class="text-white data-scroll">Search</a>
+                            <br>
+                            <a href="#howto" class="text-white data-scroll">How To</a>
+                            <br>
+                            <a href="#randomize" class="text-white data-scroll">Random Drink</a>
+                        </ul>
+                    </div>
+                    <div class="p-3 col-md-6 credits">
+                        <h3 class="mb-4">Brought to you by:</h3>
+                        <p>Cliff, Jarrod, Kim, and Sunit</p>
+                        <p>Please drink responsibly.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">© Copyright 2017 PourMe - All rights reserved. </p>
+    </div>
+</body>

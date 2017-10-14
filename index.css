@@ -102,12 +102,14 @@
 }
 
 #search {
-    padding-top: 20px;
+    padding-top: 40px;
 }
 #searchResults {
     padding-top: 20px;
 }
-
+.searchRow {
+    padding-top: 15px;
+}
 #howto {
     padding-top: 3%;
     text-align: center;

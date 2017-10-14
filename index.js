@@ -48,6 +48,7 @@ $(function(){
             method: 'GET'
         })
         .done(function(results){
+            sessionStorage.setItem("results",JSON.stringify(results));
             renderSearchResults(results);
         });
     });
@@ -76,11 +77,11 @@ $(function(){
         results.drinks.forEach(function(element){
             
             if(counter % 4 == 0){
-                renderSearchResults += "<div class='row'>";
+                renderSearchResults += "<div class='searchRow row'>";
             }
             renderSearchResults += "<div class='col-3'>";
-            renderSearchResults += "<a href='#'><img src='"+ element.strDrinkThumb + "' height='200' width='277'></a>"
-            renderSearchResults += element.strDrink;
+            renderSearchResults += "<a data-toggle='modal' data-target='#drinkModal' data-drinkid='"+element.idDrink+"'><img class = 'rounded' src='"+ element.strDrinkThumb + "' height='200' width='277'>"
+            renderSearchResults += element.strDrink + "</a>";
             renderSearchResults += "</div>"; //close col div
             
 
@@ -93,7 +94,29 @@ $(function(){
         $('#searchResults').append(renderSearchResults);
 
     }
-    
+    //
+    $('#drinkModal').on('show.bs.modal', function(e){
+        var clickedDrink = $(e.relatedTarget);
+        var drinkId = clickedDrink.data('drinkid');
+        var url = "http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkId;
+        var modal = $(this);
+        var renderDrinkIngredients = "";
+        $.ajax({
+            url: url,
+            method: "GET"
+        })
+        .done(function(results){
+            console.log(results);
+            /* var drinkName = results.drinks[0].strDrink;
+            var drinkInstructions = results.drink[0].strInstructions;
+            
+             
+            modal.find('.modal-title').text(drinkName);
+            renderDrinkIngredients += "<div class='row'><div class='col'>";
+            renderDrinkIngredients += drinkInstructions;
+            renderDrinkIngredients += "</div></div>" */
+        })
+    })
     function renderRandom(result) {
         $('#results-area').empty();
         
@@ -121,6 +144,7 @@ $(function(){
         $('#results-area').append(searchRandomResult);
     }
     
+<<<<<<< HEAD
     //gather list of ingredients for a drink
     function gatherIngredients(selectedDrink) {
         var ingredients = "Ingredients: ";
@@ -137,6 +161,8 @@ $(function(){
         return ingredients.slice(0,length-2);
     }
 
+=======
+>>>>>>> master
     //using jquery ui - autocomplete function for search menu
     $('#drinkSearch').autocomplete({
         source: ingredients
