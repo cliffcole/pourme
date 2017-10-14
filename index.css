@@ -160,14 +160,16 @@ form {
     padding-top: 20px;
 }
 
-/* - Removing to align correctly
+
 #randomize {
     padding-bottom: 3%;
-}*/
+}
 
+/* - Removing to align correctly
 #randomize, col-8 {
     padding-right: 5%;
 }
+*/
 
 .footer{
     background-color: rgba(41,47,54, 0.8);
