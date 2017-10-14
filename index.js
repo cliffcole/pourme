@@ -63,7 +63,6 @@ $(function(){
             method: 'GET'
         })
         .done(function(result){
-            console.log("put something new here for rendering")
             renderRandom(result);
         });
     });
@@ -111,7 +110,7 @@ $(function(){
             var drinkName = results.drinks[0].strDrink;
             var drinkInstructions = results.drink[0].strInstructions;
             
-           
+             
             modal.find('.modal-title').text(drinkName);
             renderDrinkIngredients += "<div class='row'><div class='col'>";
             renderDrinkIngredients += drinkInstructions;
