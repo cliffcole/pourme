@@ -116,6 +116,7 @@ $(function(){
             renderDrinkIngredients += drinkInstructions;
             renderDrinkIngredients += "</div></div>"
         })
+        
         function renderRandom(result) {
             $('#results-area').empty();
             
