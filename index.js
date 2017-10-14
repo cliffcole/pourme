@@ -92,7 +92,6 @@ $(function(){
             
         });
         $('#searchResults').append(renderSearchResults);
-
     }
     //
     $('#drinkModal').on('show.bs.modal', function(e){
@@ -106,17 +105,55 @@ $(function(){
             method: "GET"
         })
         .done(function(results){
-            console.log(results);
-            /* var drinkName = results.drinks[0].strDrink;
-            var drinkInstructions = results.drink[0].strInstructions;
-            
-             
+            var drinkName = results.drinks[0].strDrink;
+            var drinkInstructions = results.drinks[0].strInstructions;
+            modal.find('.modal-title').empty();
+            modal.find('.modal-body').empty();
             modal.find('.modal-title').text(drinkName);
             renderDrinkIngredients += "<div class='row'><div class='col'>";
-            renderDrinkIngredients += drinkInstructions;
-            renderDrinkIngredients += "</div></div>" */
+            renderDrinkIngredients += "<b>Instructions:</b> "+ drinkInstructions;
+            renderDrinkIngredients += "<hr>";
+            renderDrinkIngredients += "</div></div>"
+            renderDrinkIngredients += "<div class='row'><div class='col'>";
+            var ingredients = formatDrinkIngredients(results.drinks);
+            for (var key in ingredients){
+                renderDrinkIngredients += "<div class='row'>";
+                renderDrinkIngredients += "<div class='col'>";
+                renderDrinkIngredients += key +"</div>";
+                renderDrinkIngredients += "<div class='col'>";
+                renderDrinkIngredients += ingredients[key];
+                renderDrinkIngredients += "</div></div>";
+            }       
+            modal.find('.modal-body').append(renderDrinkIngredients);
         })
     })
+
+    function formatDrinkIngredients(drinksArray){
+        var ingredients = {};
+        for(var x = 1; x <= 15; x++){
+            var ingredientNumber = "strIngredient"+x;
+            var partNumber = "strMeasure"+x;
+
+            var currentIngredient = drinksArray[0][ingredientNumber];
+            if (currentIngredient == null){
+                currentIngredient = "";
+            }
+            if (currentIngredient != ""){
+                var parts = drinksArray[0][partNumber];
+                if (parts == "" || parts == "\n" || parts == null|| parts == "\t\n"){
+                    ingredients[currentIngredient] = "";
+                }
+                else if(parts == "\n"){
+                    
+                }
+                else {
+                    ingredients[currentIngredient] = parts;
+                }          
+            } 
+        }
+        return ingredients;
+    }
+
     function renderRandom(result) {
         $('#results-area').empty();
         
