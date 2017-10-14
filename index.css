@@ -133,8 +133,11 @@
 }
 
 #randomize {
-    
     padding-bottom: 3%;
+}
+
+#randomize, col-8 {
+    padding-right: 5%;
 }
 
 .footer{

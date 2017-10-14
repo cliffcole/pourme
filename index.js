@@ -127,7 +127,7 @@ $(function(){
         //col-4
         searchRandomResult += "<div class='col-4'>";
         searchRandomResult += "<a href='#'><img src='"+ result.drinks[0].strDrinkThumb + "' height='200' width='277'></a>"
-        searchRandomResult += "<hr />"
+        searchRandomResult += "<hr width='277'/>"
         searchRandomResult += "<p>" + result.drinks[0].strDrink + "</p>"
         searchRandomResult += "</div>"; //close col-4 div
         
