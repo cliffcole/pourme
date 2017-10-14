@@ -1,3 +1,52 @@
+/* NAV BAR */
+
+#navbar ul {
+  list-style: none;
+  text-align: center;
+}
+#navbar ul li {
+  display: inline-block;
+}
+#navbar ul li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #aaa;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 10px;
+}
+#navbar ul li a,
+#navbar ul li a:after,
+#navbar ul li a:before {
+  transition: all .5s;
+}
+#navbar ul li a:hover {
+  color: rgba(255,188,66, 0.8);
+}
+
+/* STROKE/HOVER */
+
+#navbar ul li a {
+  position: relative;
+}
+#navbar ul li a:after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 0%;
+  content: '.';
+  color: transparent;
+  background: #aaa;
+  height: 1px;
+}
+#navbar ul li a:hover:after {
+  width: 100%;
+}
+
+/* INTRO BANNER */
 #intro {
     background-image: url(https://images.unsplash.com/photo-1470337458703-46ad1756a187?dpr=1&auto=compress,format&fit=crop&w=2549&h=&q=80&cs=tinysrgb&crop=);
     background-position: center;

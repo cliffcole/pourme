@@ -21,7 +21,15 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
                 crossorigin="anonymous"></script>
                 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-        <script src="https://use.fontawesome.com/a5a759b9e9.js"></script>
+                <script></script>
+                <script src="https://use.fontawesome.com/a5a759b9e9.js"></script>
+                <script src="smooth-scroll.js"></script>
+                <script>
+        var scroll = new SmoothScroll('a[href*="#"]', {
+            speed: 2000,
+            easing: 'easeInOutCubic',
+        });
+                </script>
          <script src="index.js"></script>
 </head>
 <body>
@@ -30,19 +38,19 @@
         <!-- This begins the nav bar -->
         <div id="header">
             <div class="row">
-                <div class="col-12 container-fluid">
-                    <ul class="nav justify-content-center nav-options">
+                    <div class="col-12 container-fluid" id="navbar">
+                            <ul class="nav-options justify-content-center nav-options">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Home</a>
+                                <a data-scroll class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#howto">How To</a>
+                                <a data-scroll class="nav-link" href="#howto">How To</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#search">Search</a>
+                                <a data-scroll class="nav-link" href="#search">Search</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#randomize">Randomize</a>
+                                <a data-scroll class="nav-link" href="#randomize">Randomize</a>
                         </li>  
                     </ul>
                 </div>
@@ -116,8 +124,7 @@
                 <div class="col-lg-12 text-center">
                     <h4>Here is a Randomized Drink!</h4>
                     <button id="randomButton" type="submit" class="btn btn-primary">Random Drink Please!</button>
-                    <div id="results-area">
-                    
+                    <div id="results-area"></div>              
                     </div>
                 </div>
             </div>
@@ -132,7 +139,6 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                      <p>Modal body text goes here.</p>
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -140,18 +146,18 @@
                   </div>
                 </div>
               </div>    
-        <div id="footer">
-            <div class="row">
-            <hr>
-              <div class="col-lg-12">
-                <div class="col-12 text-center" id="terms">
-                  <a href="#">Terms of Service</a> · <a href="#">Privacy</a>    
-                </div>
-                <div class="col-12 text-center" id="copyright">
-                  <p class="cp-footer">© 2017 Pour Me Team.
-                    All rights reserved.</p>
-                </div>
-              </div>
+              <div id="footer">
+                    <div class="row">
+                        <hr>
+                        <div class="col-lg-12">
+                            <div class="col-12 text-center" id="terms">
+                                <a href="#">Terms of Service</a> · <a href="#">Privacy</a>    
+                            </div>
+                            <div class="col-12 text-center" id="copyright">
+                                <p class="cp-footer">© 2017 Pour Me Team.
+                                    All rights reserved.</p>
+                            </div>
+                        </div>
             </div>
         </div>
     </div>

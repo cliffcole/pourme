@@ -54,7 +54,7 @@ $(function(){
     });
     
     //get results from random search
-    $('#randomize').on('submit', function(e){
+    $('#randomButton').on('click', function(e){
         e.preventDefault(); //prevent page from refreshing
         
         var searchUrl = "http://www.thecocktaildb.com/api/json/v1/1/random.php";
@@ -62,8 +62,9 @@ $(function(){
             url: searchUrl,
             method: 'GET'
         })
-        .done(function(results){
+        .done(function(result){
             console.log("put something new here for rendering")
+            renderRandom(result);
         });
     });
 
@@ -109,14 +110,25 @@ $(function(){
             console.log(results);
             var drinkName = results.drinks[0].strDrink;
             var drinkInstructions = results.drink[0].strInstructions;
-            //console.log(drinkName);
+            
+           
             modal.find('.modal-title').text(drinkName);
             renderDrinkIngredients += "<div class='row'><div class='col'>";
             renderDrinkIngredients += drinkInstructions;
             renderDrinkIngredients += "</div></div>"
         })
-        
-
+        function renderRandom(result) {
+            $('#results-area').empty();
+            
+            var searchRandomResult = "";
+            searchRandomResult += "<div class='row'>";
+            searchRandomResult += "<div class='col-3'>";
+            searchRandomResult += "<a href='#'><img src='"+ result.drinks[0].strDrinkThumb + "' height='200' width='277'></a>"
+            searchRandomResult += result.drinks[0].strDrink;
+            searchRandomResult += "</div></div>"; //close col div
+            
+            $('#results-area').append(searchRandomResult);
+        }
     })
     //using jquery ui - autocomplete function for search menu
     $('#drinkSearch').autocomplete({
