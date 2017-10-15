@@ -21,4 +21,8 @@ JavaScript/jQuery,
 FontAwesome, 
 cferdinandi's smooth-scroll.js
 
+API's used:
+
+http://www.thecocktaildb.com/
+
 Happy Drinking!
