@@ -121,7 +121,13 @@ nav.shrink {
 #copyright {
     letter-spacing: 0.3em;
 }
-
+#currentSearch {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+.buttonDelete {
+    color: red;
+}
 #search {
     padding-top: 40px;
 }

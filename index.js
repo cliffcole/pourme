@@ -12,6 +12,10 @@ Main Javascript file
 
 $(function(){
     
+    //clear any session Storage
+    sessionStorage.removeItem("drinkResults");
+    sessionStorage.removeItem("currentSearches");
+    
     // Loading ingredients on page load.
     var ingredients = [];
 
@@ -48,10 +52,77 @@ $(function(){
             method: 'GET'
         })
         .done(function(results){
-            sessionStorage.setItem("results",JSON.stringify(results));
-            renderSearchResults(results);
+            //store results in session storage
+            var previousResults = sessionStorage.getItem('drinkResults');
+            //check for previous results
+            if(previousResults == null){
+                //check to see if results are empty
+                if(results == ""){
+                    $('#searchResults').empty();
+                    $('#searchResults').append("<div class='container'><p>No Results for "+searchText+"... Please try again</p></div>");
+                }
+                //otherwise set current results to sessionStorage
+                else{
+                    sessionStorage.setItem("drinkResults",JSON.stringify(results));
+                    var searchTextArray = []
+                    searchTextArray.push(searchText);
+                    searchTextArray.push("gin");
+                    console.log(searchTextArray);
+                    
+                    sessionStorage.setItem("userSearches",searchTextArray);
+                    
+                    renderCurrentSearch(searchText);
+                    renderSearchResults(results.drinks);
+                }
+            }
+            //else previous results
+            else {
+                
+                //compare previous results
+                var filteredDrinks = filterDrinkResults(JSON.parse(previousResults), results);
+                //store previous results
+                sessionStorage.setItem("drinkResults",JSON.stringify(results));
+                
+                //renderCurrentSearch(searchText);
+                renderSearchResults(filteredDrinks);
+            }
+            
         });
     });
+    // Filter through previous results and current results
+    function filterDrinkResults(previousResults, currentSearchResults){
+        var returnDrinkResults = [];
+        
+        //loop through current and previous results and compare
+        previousResults.drinks.forEach(function(prevResults){
+            var prevName = prevResults.strDrink;
+            currentSearchResults.drinks.forEach(function(currResults){
+            
+                var currName = currResults.strDrink;
+                if(currName == prevName){
+                    returnDrinkResults.push(currResults)
+                }
+            })
+        })
+        // return results that match
+        return returnDrinkResults;
+    }
+
+    //Remove selected search and rerender
+    $('#currentSearch').on('click', 'button', function(e){
+        e.preventDefault();
+        var removeSearch = $(e.currentTarget).data('search');
+        console.log(removeSearch);
+    })
+    //rendering current searches
+    function renderCurrentSearch(searchText){
+        var renderCurrentSearch = "<div class='row'>";
+        renderCurrentSearch += "<div class='col'>";
+        renderCurrentSearch += "<button type='button' class='searches btn btn-secondary btn-sm' data-search='"+searchText+"'>"+searchText+"<span class='buttonDelete'> X</span></button>";
+        renderCurrentSearch += "</div></div>";
+
+        $('#currentSearch').append(renderCurrentSearch);
+    }
     
     //get results from random search
     $('#randomButton').on('click', function(e){
@@ -74,7 +145,8 @@ $(function(){
         var counter = 0;
 
        var renderSearchResults = "";
-        results.drinks.forEach(function(element){
+       
+        results.forEach(function(element){
             
             if(counter % 4 == 0){
                 renderSearchResults += "<div class='searchRow row'>";
