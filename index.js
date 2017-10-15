@@ -14,7 +14,7 @@ $(function(){
     
     //clear any session Storage
     sessionStorage.removeItem("drinkResults");
-    sessionStorage.removeItem("currentSearches");
+    sessionStorage.removeItem("userSearches");
     
     // Loading ingredients on page load.
     var ingredients = [];
@@ -64,20 +64,17 @@ $(function(){
                 //otherwise set current results to sessionStorage
                 else{
                     sessionStorage.setItem("drinkResults",JSON.stringify(results));
-                    var searchTextArray = []
-                    searchTextArray.push(searchText);
-                    searchTextArray.push("gin");
-                    console.log(searchTextArray);
                     
-                    sessionStorage.setItem("userSearches",searchTextArray);
                     
-                    renderCurrentSearch(searchText);
+                    var currentSearches = formatCurrentSearches(searchText);
+                    renderCurrentSearch(currentSearches);
                     renderSearchResults(results.drinks);
                 }
             }
             //else previous results
             else {
-                
+                var currentSearches = formatCurrentSearches(searchText);
+                renderCurrentSearch(currentSearches);
                 //compare previous results
                 var filteredDrinks = filterDrinkResults(JSON.parse(previousResults), results);
                 //store previous results
@@ -89,6 +86,24 @@ $(function(){
             
         });
     });
+
+    function formatCurrentSearches(searchText) {
+        debugger;
+        var currentSearches = JSON.parse(sessionStorage.getItem('userSearches'));
+        if(currentSearches == null){
+            var currentSearches = []
+            currentSearches.push(searchText);
+            sessionStorage.setItem("userSearches",JSON.stringify(currentSearches));
+            
+        }
+        else {
+            currentSearches.push(searchText);
+            sessionStorage.removeItem("userSearches");
+            sessionStorage.setItem("userSearches",JSON.stringify(currentSearches));
+        }
+        //console.log(currentSearches);
+        return currentSearches;
+    }
     // Filter through previous results and current results
     function filterDrinkResults(previousResults, currentSearchResults){
         var returnDrinkResults = [];
@@ -97,7 +112,6 @@ $(function(){
         previousResults.drinks.forEach(function(prevResults){
             var prevName = prevResults.strDrink;
             currentSearchResults.drinks.forEach(function(currResults){
-            
                 var currName = currResults.strDrink;
                 if(currName == prevName){
                     returnDrinkResults.push(currResults)
@@ -114,12 +128,19 @@ $(function(){
         var removeSearch = $(e.currentTarget).data('search');
         console.log(removeSearch);
     })
+
     //rendering current searches
-    function renderCurrentSearch(searchText){
+    function renderCurrentSearch(searchTextArray){
+        console.log(searchTextArray);
+        $('#currentSearch').empty();
         var renderCurrentSearch = "<div class='row'>";
-        renderCurrentSearch += "<div class='col'>";
-        renderCurrentSearch += "<button type='button' class='searches btn btn-secondary btn-sm' data-search='"+searchText+"'>"+searchText+"<span class='buttonDelete'> X</span></button>";
-        renderCurrentSearch += "</div></div>";
+        searchTextArray.forEach(function(search){
+            renderCurrentSearch += "<div class='col'>";
+            renderCurrentSearch += "<button type='button' class='searches btn btn-secondary btn-sm' data-search='"+search+"'>"+search+"<span class='buttonDelete'> X</span></button>";
+            renderCurrentSearch += "</div>";
+        })
+        
+        renderCurrentSearch += "</div>";
 
         $('#currentSearch').append(renderCurrentSearch);
     }
@@ -165,29 +186,36 @@ $(function(){
         });
         $('#searchResults').append(renderSearchResults);
     }
-    //
+    //drink modal
     $('#drinkModal').on('show.bs.modal', function(e){
         var clickedDrink = $(e.relatedTarget);
         var drinkId = clickedDrink.data('drinkid');
+        //lookup drinkId 
         var url = "http://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkId;
         var modal = $(this);
         var renderDrinkIngredients = "";
+        //send ajax request
         $.ajax({
             url: url,
             method: "GET"
         })
         .done(function(results){
+            //parse various variables
             var drinkName = results.drinks[0].strDrink;
             var drinkInstructions = results.drinks[0].strInstructions;
+            //empty any previous drinks
             modal.find('.modal-title').empty();
             modal.find('.modal-body').empty();
             modal.find('.modal-title').text(drinkName);
+            //build modal
             renderDrinkIngredients += "<div class='row'><div class='col'>";
             renderDrinkIngredients += "<b>Instructions:</b> "+ drinkInstructions;
             renderDrinkIngredients += "<hr>";
             renderDrinkIngredients += "</div></div>"
             renderDrinkIngredients += "<div class='row'><div class='col'>";
+            //format drink ingredients
             var ingredients = formatDrinkIngredients(results.drinks);
+            //loop through ingredients 
             for (var key in ingredients){
                 renderDrinkIngredients += "<div class='row'>";
                 renderDrinkIngredients += "<div class='col'>";
@@ -196,27 +224,28 @@ $(function(){
                 renderDrinkIngredients += ingredients[key];
                 renderDrinkIngredients += "</div></div>";
             }       
+            //append to modal
             modal.find('.modal-body').append(renderDrinkIngredients);
         })
     })
-
+    //format drink ingredients 
     function formatDrinkIngredients(drinksArray){
         var ingredients = {};
+        //15 possible ingredient strings based on API results
         for(var x = 1; x <= 15; x++){
+            //increment ingredients and parts associated with ingredients
             var ingredientNumber = "strIngredient"+x;
             var partNumber = "strMeasure"+x;
-
+            //only one results for drink search
             var currentIngredient = drinksArray[0][ingredientNumber];
             if (currentIngredient == null){
                 currentIngredient = "";
             }
             if (currentIngredient != ""){
                 var parts = drinksArray[0][partNumber];
+                //check for empty parts
                 if (parts == "" || parts == "\n" || parts == null|| parts == "\t\n"){
                     ingredients[currentIngredient] = "";
-                }
-                else if(parts == "\n"){
-                    
                 }
                 else {
                     ingredients[currentIngredient] = parts;
