@@ -88,7 +88,6 @@ $(function(){
     });
 
     function formatCurrentSearches(searchText) {
-        debugger;
         var currentSearches = JSON.parse(sessionStorage.getItem('userSearches'));
         if(currentSearches == null){
             var currentSearches = []
@@ -134,12 +133,13 @@ $(function(){
         console.log(searchTextArray);
         $('#currentSearch').empty();
         var renderCurrentSearch = "<div class='row'>";
+        renderCurrentSearch += "<div class='col'>";
         searchTextArray.forEach(function(search){
-            renderCurrentSearch += "<div class='col'>";
+            
             renderCurrentSearch += "<button type='button' class='searches btn btn-secondary btn-sm' data-search='"+search+"'>"+search+"<span class='buttonDelete'> X</span></button>";
-            renderCurrentSearch += "</div>";
+            
         })
-        
+        renderCurrentSearch += "</div>";
         renderCurrentSearch += "</div>";
 
         $('#currentSearch').append(renderCurrentSearch);

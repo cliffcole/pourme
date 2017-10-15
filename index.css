@@ -137,6 +137,9 @@ nav.shrink {
 .searchRow {
     padding-top: 15px;
 }
+.btn-sm {
+    margin-right: 10px;
+}
 #howto {
     padding-top: 3%;
     text-align: center;
