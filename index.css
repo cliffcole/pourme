@@ -183,3 +183,7 @@ form {
 .footer{
     background-color: rgba(41,47,54, 0.8);
 }
+
+a {
+    text-decoration: none !important;
+}
