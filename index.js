@@ -100,7 +100,6 @@ $(function(){
             sessionStorage.removeItem("userSearches");
             sessionStorage.setItem("userSearches",JSON.stringify(currentSearches));
         }
-        //console.log(currentSearches);
         return currentSearches;
     }
     // Filter through previous results and current results
@@ -125,12 +124,17 @@ $(function(){
     $('#currentSearch').on('click', 'button', function(e){
         e.preventDefault();
         var removeSearch = $(e.currentTarget).data('search');
-        console.log(removeSearch);
+        deleteUserSearch(removeSearch);
     })
 
+    function deleteUserSearch(removeSearch){
+        var currentSearches = JSON.parse(sessionStorage.getItem('userSearches'));
+        console.log(currentSearches);
+        
+    }
     //rendering current searches
     function renderCurrentSearch(searchTextArray){
-        console.log(searchTextArray);
+        
         $('#currentSearch').empty();
         var renderCurrentSearch = "<div class='row'>";
         renderCurrentSearch += "<div class='col'>";
@@ -302,6 +306,9 @@ $(function(){
     $('#drinkSearch').autocomplete({
         source: ingredients
     });
+    function getAndFilterCurrentSearchResults(currentSearch){
+
+    }
 });
 
 
