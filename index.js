@@ -86,7 +86,8 @@ $(function(){
             
         });
     });
-
+    
+    
     function formatCurrentSearches(searchText) {
         var currentSearches = JSON.parse(sessionStorage.getItem('userSearches'));
         if(currentSearches == null){
@@ -100,7 +101,6 @@ $(function(){
             sessionStorage.removeItem("userSearches");
             sessionStorage.setItem("userSearches",JSON.stringify(currentSearches));
         }
-        //console.log(currentSearches);
         return currentSearches;
     }
     // Filter through previous results and current results
@@ -125,12 +125,79 @@ $(function(){
     $('#currentSearch').on('click', 'button', function(e){
         e.preventDefault();
         var removeSearch = $(e.currentTarget).data('search');
-        console.log(removeSearch);
+        deleteUserSearch(removeSearch);
     })
 
+    function deleteUserSearch(removeSearch){
+        var currentSearches = JSON.parse(sessionStorage.getItem('userSearches'));
+        
+        if (currentSearches.length == 1){
+            if (currentSearches[0] == removeSearch){
+                sessionStorage.removeItem('userSearches');
+                $('#currentSearch').empty();
+                $('#searchResults').empty();
+            }
+            
+        }else {
+            filteredCurrentSearches = currentSearches.filter(function(searchItem){
+                return searchItem != removeSearch;
+            })
+            getAndFilterCurrentSearchResults(filteredCurrentSearches);
+        } 
+        
+    }
+
+    //loops through currentSearches for results
+    function getAndFilterCurrentSearchResults(filteredCurrentSearches){
+        sessionStorage.removeItem('drinkResults');
+        sessionStorage.removeItem('userSearches');
+        filteredCurrentSearches.forEach(function(element){
+            var searchText = element
+            var searchUrl = "http://www.thecocktaildb.com/api/json/v1/1/filter.php?i="+searchText;
+            $.ajax({
+                url: searchUrl,
+                method: 'GET'
+            })
+            .done(function(results){
+                //store results in session storage
+                var previousResults = sessionStorage.getItem('drinkResults');
+                //check for previous results
+                if(previousResults == null){
+                    //check to see if results are empty
+                    if(results == ""){
+                        $('#searchResults').empty();
+                        $('#searchResults').append("<div class='container'><p>No Results for "+searchText+"... Please try again</p></div>");
+                    }
+                    //otherwise set current results to sessionStorage
+                    else{
+                        sessionStorage.setItem("drinkResults",JSON.stringify(results));
+                        
+                        
+                        var currentSearches = formatCurrentSearches(searchText);
+                        console.log("Null: "+currentSearches);
+                        renderCurrentSearch(currentSearches);
+                        renderSearchResults(results.drinks);
+                    }
+                }
+                //else previous results
+                else {
+                    var currentSearches = formatCurrentSearches(searchText);
+                    console.log("ELSE: "+ currentSearches);
+                    renderCurrentSearch(currentSearches);
+                    //compare previous results
+                    var filteredDrinks = filterDrinkResults(JSON.parse(previousResults), results);
+                    //store previous results
+                    sessionStorage.setItem("drinkResults",JSON.stringify(results));
+                    
+                    //renderCurrentSearch(searchText);
+                    renderSearchResults(filteredDrinks);
+                }
+            })
+        })
+    }
     //rendering current searches
     function renderCurrentSearch(searchTextArray){
-        console.log(searchTextArray);
+        
         $('#currentSearch').empty();
         var renderCurrentSearch = "<div class='row'>";
         renderCurrentSearch += "<div class='col'>";
