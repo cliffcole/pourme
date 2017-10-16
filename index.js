@@ -240,7 +240,7 @@ $(function(){
                 renderSearchResults += "<div class='searchRow row'>";
             }
             renderSearchResults += "<div class='col-3'>";
-            renderSearchResults += "<a data-toggle='modal' data-target='#drinkModal' data-drinkid='"+element.idDrink+"'><img class = 'rounded' src='"+ element.strDrinkThumb + "' height='200' width='277'>"
+            renderSearchResults += "<a data-toggle='modal' data-target='#drinkModal' data-drinkid='"+element.idDrink+"'><img class = 'rounded img-fluid' src='"+ element.strDrinkThumb + "' height='auto' width='100%'>"
             renderSearchResults += element.strDrink + "</a>";
             renderSearchResults += "</div>"; //close col div
             
