@@ -333,7 +333,7 @@ $(function(){
         searchRandomResult += "<div class='col-4'>";
         searchRandomResult += "<a href='#'><img src='"+ result.drinks[0].strDrinkThumb + "' height='200' width='277'></a>"
         searchRandomResult += "<hr width='277'/>"
-        searchRandomResult += "<p>" + result.drinks[0].strDrink + "</p>"
+        searchRandomResult += "<p class='drinkname'>" + result.drinks[0].strDrink + "</p>"
         searchRandomResult += "</div>"; //close col-4 div
         
         //col-8

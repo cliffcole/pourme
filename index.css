@@ -27,10 +27,12 @@ nav.shrink {
   display: block;
   padding: 15px;
   text-decoration: none;
+  font-family: 'Raleway';
   color: #FFF;
   font-weight: 800;
   text-transform: uppercase;
   margin: 0 10px;
+  letter-spacing: 2px;
 }
 
 #navbar ul li a,
@@ -121,12 +123,18 @@ nav.shrink {
 #title {
     color: white; 
     padding-top: 200px;
+    font-family: 'Playfair Display';
+    font-style: italic; 
+    font-weight: 800;
+    font-size: 10em;
+
 }
 
 #subtitle {
     color:white;
-    padding-top: 25px;
-    letter-spacing: 0.3em;
+    padding-top: 3em;
+    letter-spacing: 0.5em;
+    font-family: 'Playfair Display';
 }
 
 .divider {
@@ -134,6 +142,14 @@ nav.shrink {
     height: 4px;
     width: 25px;
     margin: 20px auto;
+}
+
+.howtotitle, .searchtitle, .randomtitle {
+    font-family: 'Playfair Display';
+    font-weight: 900;
+    font-size: 5em;
+    color: #2C3641;
+    letter-spacing: -3px;
 }
 
 #terms {
@@ -153,9 +169,15 @@ nav.shrink {
     color: red;
 }
 
+#drinkSubmit {
+    margin-top: 4em;
+    padding-top: 3em;
+    margin-bottom: 4em;
+    padding-bottom: 3em;
+}
+
 #search {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    margin-top: 3em;
     background-color: #FFFFFF;
 }
 
@@ -181,10 +203,27 @@ nav.shrink {
     border: 0;
 }
 
+.card-title {
+    font-family: 'Raleway';
+    font-size: 2.5em;
+}
+
+.card-text {
+    font-family: 'Raleway';
+    font-size: 1em;
+}
+
 #steps {
     padding-top: 50px; 
-    padding-left: 150px;
-    padding-right: 150px;
+    padding-left: 50px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+#steps > .col {
+    height: 300px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 h4.display-3 {
@@ -203,6 +242,25 @@ form {
 
 #randomize {
     padding-bottom: 3%;
+}
+
+.ingredients, .instructions {
+    font-family: 'Raleway';
+    font-size: 1em;
+}
+
+.drinkname {
+font-family: 'Raleway';
+font-size: 2.2em;
+letter-spacing: -2px;
+text-transform: uppercase;
+font-weight: 800;
+}
+
+#randomButton {
+    margin-top: 75px;
+    margin-bottom: 100px;
+
 }
 
 /* - Removing to align correctly
@@ -228,24 +286,47 @@ form {
 p.us {
     color:rgba(255,188,66, 0.8);
     vertical-align: center;
+    font-family: 'Raleway';
 }
 
+/* a#btm-link { */
 a {
     text-decoration: none !important;
     color: rgba(255,188,66, 0.8);
     text-decoration: none;
+    font-family: 'Raleway';
     transition: color 250ms ease-in;
+    text-transform: uppercase;
+    font-size: 1.3em;
 }
 
 a:hover {
     color: inherit;
 }
 
+a {
+    text-decoration: none;
+
+}
+
 .credits {
     height: 318px;
-    margin-top: 60px;
 }
 
 #creators {
     padding-top: 85px;
+}
+
+#left-title, #creators {
+    font-family: 'Playfair Display';
+    font-weight: 800;
+    font-size: 3.5em;
+    letter-spacing: -2px;
+}
+
+.copyright-text {
+    font-family: 'Raleway'; 
+    font-size: 1em;
+    font-weight: 300;
+    text-transform: uppercase;
 }
