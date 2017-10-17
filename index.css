@@ -148,7 +148,7 @@ nav.shrink {
     font-family: 'Playfair Display';
     font-weight: 900;
     font-size: 5em;
-    color: #2C3641;
+    color: #2c3641;
     letter-spacing: -3px;
 }
 
@@ -160,13 +160,28 @@ nav.shrink {
     letter-spacing: 0.3em;
 }
 
+
+/* SEARCH BAR */
+
 #currentSearch {
     padding-top: 20px;
     padding-left: 20px;
 }
 
 .buttonDelete {
-    color: red;
+    color: rgba(255,188,66, 0.8);
+    background-color: #2c3641;
+}
+
+.searches {
+    background-color: #2c3641;
+    color: rgb(255, 255, 255);
+    font-family: 'Raleway';
+    font-weight: 800;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: uppercase;
+    margin-left: 10px;
 }
 
 #drinkSubmit {
@@ -186,9 +201,30 @@ nav.shrink {
 }
 
 .searchRow {
-    padding-top: 15px;
+    padding-top: 100px;
 }
 
+#searchButton {
+    margin-left: .4em;
+    margin-right: .3em;
+    font-family: 'Raleway';
+    font-weight: 800;
+    border-radius: 25px;
+}
+
+#drinkSearch {
+    border: #2C3641 1px solid; 
+    border-radius: 25px;
+    font-family: 'Raleway';
+    font-weight: 300;
+    color: #2C3641;
+    font-size: 1.3em;
+    padding-left: 35px; 
+    padding-right: 35px; 
+    background-color: rgba(255, 255, 255, 0.057);
+}
+
+/* HOW TO */ 
 .btn-sm {
     margin-right: 10px;
 }
@@ -241,7 +277,8 @@ form {
 }
 
 #randomize {
-    padding-bottom: 3%;
+    padding-bottom: 3em;
+    padding-top: 3em;
 }
 
 .ingredients, .instructions {
@@ -306,7 +343,6 @@ a:hover {
 
 a {
     text-decoration: none;
-
 }
 
 .credits {
