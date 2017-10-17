@@ -1,3 +1,8 @@
+/* BODY */
+body {
+    background-color: #F5F5F5;
+}
+
 /* NAV BAR */
 #header {
     position: fixed;
@@ -193,7 +198,7 @@ nav.shrink {
 
 #search {
     margin-top: 3em;
-    background-color: #FFFFFF;
+    background-color: rgba(237, 237, 237, 0.68);
 }
 
 #searchResults {
@@ -237,6 +242,7 @@ nav.shrink {
 
 .card {
     border: 0;
+    background-color: #F5F5F5;
 }
 
 .card-title {
