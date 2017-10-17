@@ -203,7 +203,7 @@ $(function(){
         renderCurrentSearch += "<div class='col'>";
         searchTextArray.forEach(function(search){
             
-            renderCurrentSearch += "<button type='button' class='searches btn btn-secondary btn-sm' data-search='"+search+"'>"+search+"<span class='buttonDelete'> X</span></button>";
+            renderCurrentSearch += "<button type='button' class='searches btn btn-md' data-search='"+search+"'>"+search+"<span class='buttonDelete'> X</span></button>";
             
         })
         renderCurrentSearch += "</div>";
