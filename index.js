@@ -239,7 +239,7 @@ $(function(){
             if(counter % 4 == 0){
                 renderSearchResults += "<div class='searchRow row'>";
             }
-            renderSearchResults += "<div class='col-3'>";
+            renderSearchResults += "<div class='col-sm-3'>";
             renderSearchResults += "<a data-toggle='modal' data-target='#drinkModal' data-drinkid='"+element.idDrink+"'><img class = 'rounded img-fluid' src='"+ element.strDrinkThumb + "' height='auto' width='100%'>"
             renderSearchResults += element.strDrink + "</a>";
             renderSearchResults += "</div>"; //close col div
