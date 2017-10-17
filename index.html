@@ -31,6 +31,10 @@
             });
         </script>
         <script src="index.js"></script>
+
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Playfair+Display:900,900i|Raleway:300,400,800" rel="stylesheet">
+
     </head>
     
     <body>
@@ -43,7 +47,7 @@
                     <div class="row container-fluid">
                         <div class="col-12">
                             <h1 class="display-1 text-center" id="title">
-                                Pour Me 
+                                Pour Me
                             </h1>
                             <div class="divider">
                             </div>
@@ -57,7 +61,7 @@
 
             <!-- This begins the how-to section -->
             <div id="howto" class="container">
-                <h4 class="display-3">How To</h4>
+                <h4 class="howtotitle display-3">How To</h4>
                 <div class="divider">
                 </div>
                 <div class="row align-items-center" id="steps">
@@ -103,7 +107,7 @@
             <!-- This begins the search section -->
             <div id="search" class="container-fluid">
                 <div class="container">
-                    <h4 class="display-3 text-center">Pick Your Poison</h4>
+                    <h4 class="searchtitle display-3 text-center">Pick Your Poison</h4>
                     <div class="divider"></div>
                     <form id="drinkSubmit">
                         <div class="input-group">
@@ -121,9 +125,9 @@
             <div id="randomize" class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h4 class="display-3 text-center">Randomize</h4>
+                        <h4 class="randomtitle display-3 text-center">Randomize</h4>
                         <div class="divider"></div>
-                        <button id="randomButton" type="submit" class="btn btn-primary">Random Drink Please!</button>
+                        <button id="randomButton" type="submit" class="btn btn-outline-dark btn-lg">Random Drink Please!</button>
                         <div id="results-area" class="container"></div>
                     </div>
                 </div>
@@ -175,12 +179,12 @@
                 <div class="container" id="foot">
                     <div class="row align-items-center">
                         <div class="p-3 col-md-9" id="leftside"> <i class="fa fa-5x mb-5 fa-glass"></i>
-                            <h3 class="mb-3">PourMe</h3>
+                            <h3 class="mb-3" id="left-title">PourMe</h3>
                             <ul class="list-unstyled">
-                                <li><a href="#" class="data-scroll">Home</a></li>
-                                <li><a href="#search" class="data-scroll">Search</a></li>
-                                <li><a href="#howto" class="data-scroll">How To</a></li>
-                                <li><a href="#randomize" class="data-scroll">Random Drink</a></li>
+                                <li><a href="#" class="data-scroll" id="btm-link">Home</a></li>
+                                <li><a href="#search" class="data-scroll" id="btm-link">Search</a></li>
+                                <li><a href="#howto" class="data-scroll" id="btm-link">How To</a></li>
+                                <li><a href="#randomize" class="data-scroll" id="btm-link">Random Drink</a></li>
                             </ul>
                         </div>
                         <div class="p-3 col-md-3 credits">
@@ -192,7 +196,7 @@
                     
                     <div class="row">
                         <div class="col-md-12">
-                            <p class="text-center">© Copyright 2017 PourMe - All rights reserved. </p>
+                            <p class="copyright-text text-center">© Copyright 2017 PourMe - All rights reserved. </p>
                         </div>
                     </div>
                 </div>
