@@ -296,8 +296,7 @@ font-weight: 800;
 
 #randomButton {
     margin-top: 75px;
-    margin-bottom: 100px;
-
+    border-radius: 25px;
 }
 
 /* - Removing to align correctly
@@ -314,6 +313,7 @@ font-weight: 800;
     overflow: hidden;
     background-size: 100%;
     background-color: #FFFFFF;
+    margin-top: 100px;
 }
 
 #foot {
